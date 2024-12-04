@@ -1,7 +1,17 @@
-  async getChannelHistory(
-    channel_id: string,
-    limit: number = 10,
-  ): Promise<any> {
+#!/usr/bin/env node
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import {
+  CallToolRequest,
+  CallToolRequestSchema,
+  ListToolsRequestSchema,
+  Tool,
+} from "@modelcontextprotocol/sdk/types.js";
+
+[... rest of the unchanged file ...]
+
+// Only modifying the getChannelHistory method:
+  async getChannelHistory(channel_id: string, limit: number = 10): Promise<any> {
     const params = new URLSearchParams({
       channel: channel_id,
       limit: limit.toString(),
@@ -37,3 +47,5 @@
 
     return result;
   }
+
+[... rest of the unchanged file ...]
